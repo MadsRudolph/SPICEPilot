@@ -1,0 +1,82 @@
+========================================
+EASIEST WAY: Simulate Without Schematic
+========================================
+
+KiCad 9.0 can simulate SPICE files directly!
+You don't need a perfect schematic.
+
+========================================
+STEP-BY-STEP INSTRUCTIONS:
+========================================
+
+1. Open KiCad 9.0
+
+2. Create a blank/minimal schematic:
+   - File → New Project → "OpAmp_Sim"
+   - Open Schematic Editor
+   - Just place ONE component (any resistor)
+   - Place a GND symbol
+   - Connect them (just to have a valid schematic)
+
+3. Add SPICE directive:
+   - Place → Text (or press 'T')
+   - Type or paste this EXACTLY:
+
+.include "C:/Users/Mads2/SPICEPilot/two_stage_opamp_kicad.cir"
+
+   - Click outside the schematic to place it
+
+4. Open Simulator:
+   - Inspect → Simulator (Ctrl+Shift+S)
+
+5. In Simulator window:
+   - Click Settings/Command icon
+   - Select "AC" tab
+   - Start: 0.1
+   - Stop: 1G
+   - Points: 100
+   - Scale: Decade
+   - Click OK
+
+6. Click Run (▶)
+
+7. Add signals:
+   - Right-click → Add Signals
+   - Select V(vout)
+   - OK
+
+8. View as dB:
+   - Right-click trace → Show as: Magnitude (dB)
+
+DONE! You'll see the Bode plot!
+
+========================================
+WHY THIS WORKS:
+========================================
+
+The .include directive tells KiCad to load
+the complete SPICE netlist we created.
+
+Your "two_stage_opamp_kicad.cir" file has
+everything needed - you just reference it!
+
+========================================
+ALTERNATIVE: Use ngspice Directly
+========================================
+
+Even simpler - use ngspice from command line:
+
+1. Open terminal/command prompt
+
+2. Navigate to folder:
+   cd C:\Users\Mads2\SPICEPilot
+
+3. Run ngspice:
+   ngspice two_stage_opamp_kicad.cir
+
+4. At ngspice prompt, type:
+   plot vdb(vout)
+
+This opens a plot window immediately!
+
+========================================

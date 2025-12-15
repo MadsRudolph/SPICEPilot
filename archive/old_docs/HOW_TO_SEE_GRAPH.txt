@@ -1,0 +1,118 @@
+========================================
+HOW TO SEE THE GRAPH IN KICAD SIMULATOR
+========================================
+
+The simulation RAN successfully (you saw it in the log).
+Now you need to PLOT the results!
+
+========================================
+STEP-BY-STEP TO GET THE GRAPH:
+========================================
+
+In the KiCad Simulator window:
+
+1. RIGHT-CLICK in the empty plot area
+   (the big blank space where graph should be)
+
+2. Select "Add Signals..." from menu
+   (or click the "Add Signals" button in toolbar)
+
+3. A dialog will open showing available signals
+
+4. Look for and SELECT:
+   - v(vout)
+   - OR V(vout)
+   - (capitalization might vary)
+
+5. Click OK
+
+6. The signal should appear in the plot!
+
+7. To see it as dB (Bode plot):
+   - In the left panel, you'll see the signal listed
+   - RIGHT-CLICK on "V(vout)" in the signals list
+   - Select "Show as" → "Magnitude (dB)"
+
+8. For phase:
+   - Add V(vout) again
+   - Right-click → "Show as" → "Phase"
+
+========================================
+IF YOU DON'T SEE ANY SIGNALS:
+========================================
+
+Option A: Check what's available
+---------------------------------
+1. Look in the SPICE Console/Log tab
+2. Scroll through the output
+3. Look for node names like:
+   - vout
+   - n_d2
+   - n_d3
+   - n_tail
+
+Option B: Use specific node
+---------------------------------
+Try adding these signals one by one:
+- V(vout)
+- v(vout)
+- vout
+- V(n_d3)
+
+Option C: Check the log output
+---------------------------------
+1. In Simulator window, click "SPICE Console" tab
+2. Look for lines that say "No. of Data Rows"
+3. Below that, you should see node names
+4. Try adding those exact names
+
+========================================
+TOOLBAR BUTTONS IN SIMULATOR:
+========================================
+
+Look for these icons at the top:
+
+▶ = Run simulation (you already did this)
+📊 = Add signals (click this!)
+📈 = Show/hide legend
+🔍 = Zoom tools
+
+========================================
+QUICK TEST:
+========================================
+
+After clicking "Add Signals", you should see
+a list like this:
+
+Available Signals:
+  V(vout)
+  V(vdd)
+  V(n_d2)
+  V(n_d3)
+  V(n_tail)
+  V(vin_p)
+  V(vin_n)
+  ... etc
+
+Just select V(vout) and click OK!
+
+========================================
+ALTERNATIVE VIEW:
+========================================
+
+If you can't get the graph, you can:
+
+1. Check the output in the log
+2. Export results to CSV:
+   - File → Export Current Plot to CSV
+
+3. Open in Excel/Python to plot
+
+========================================
+
+The simulation WORKED - you just need to
+tell KiCad WHICH signal to display!
+
+Right-click the plot area and add V(vout)!
+
+========================================

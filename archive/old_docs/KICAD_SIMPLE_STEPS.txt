@@ -1,0 +1,62 @@
+========================================
+SIMPLE KICAD 9.0 SIMULATION STEPS
+========================================
+
+METHOD: Direct SPICE File Simulation
+FILE: two_stage_opamp_kicad.cir
+
+STEPS:
+
+1. Open KiCad 9.0 Schematic Editor
+   (can be blank or any existing schematic)
+
+2. Menu: Inspect → Simulator
+   (or press Ctrl+Shift+S)
+
+3. In Simulator window, click "Settings" icon (gear ⚙)
+   OR: Menu → Simulation → Edit Simulation Command
+
+4. In the dialog:
+   - Click "Custom" tab (if available)
+   - OR look for "Netlist" field
+   - Click the "..." browse button next to netlist path
+   - Navigate to: C:\Users\Mads2\SPICEPilot\two_stage_opamp_kicad.cir
+   - Click Open
+
+5. Still in Settings:
+   - Select "AC" tab
+   - Type of Sweep: Decade
+   - Number of points per decade: 100
+   - Start frequency: 0.1
+   - Stop frequency: 1G
+   - Click OK
+
+6. Click "Run Simulation" button (green play ▶)
+
+7. After simulation completes:
+   - Right-click in plot area
+   - "Add Signals..."
+   - Select "V(vout)"
+   - Click OK
+
+8. To see gain in dB:
+   - Right-click the trace name "V(vout)" in left panel
+   - Select "Show as: Magnitude (dB)"
+
+EXPECTED RESULT:
+- Bode plot showing ~1.4 dB gain at low frequency
+- Rolloff around 1 MHz
+
+========================================
+
+ALTERNATIVE: Run ngspice directly from command line
+
+Open terminal in C:\Users\Mads2\SPICEPilot\
+Run: ngspice two_stage_opamp_kicad.cir
+
+In ngspice:
+ngspice> run
+ngspice> plot vdb(vout)
+ngspice> plot vp(vout)
+
+========================================

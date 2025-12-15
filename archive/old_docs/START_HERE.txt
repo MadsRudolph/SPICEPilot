@@ -1,0 +1,108 @@
+========================================
+  TWO-STAGE CMOS OP-AMP
+  Complete KiCad 9.0 Project
+========================================
+
+READY TO OPEN!
+
+Files created:
+✓ two_stage_opamp.kicad_pro  (Project file)
+✓ two_stage_opamp.kicad_sch  (Schematic)
+
+========================================
+HOW TO OPEN:
+========================================
+
+METHOD 1: Double-click
+-----------------------
+Just double-click:
+  two_stage_opamp.kicad_pro
+
+KiCad will open automatically!
+
+
+METHOD 2: From KiCad
+-----------------------
+1. Open KiCad 9.0
+2. File → Open Project
+3. Navigate to: C:\Users\Mads2\SPICEPilot\
+4. Select: two_stage_opamp.kicad_pro
+5. Click Open
+
+========================================
+RUNNING THE SIMULATION:
+========================================
+
+Once project is open:
+
+1. Click "Schematic Editor" button
+   (or the schematic will open automatically)
+
+2. You'll see the complete op-amp circuit:
+   - Left: Power supplies
+   - Center: Differential amplifier (M2-M5)
+   - Right: Output stage (M6-M7)
+   - Bottom: SPICE models
+
+3. Press Ctrl+Shift+S
+   (or menu: Inspect → Simulator)
+
+4. Click the green ▶ "Run" button
+
+5. After simulation:
+   - Right-click plot → "Add Signals"
+   - Select "V(vout)"
+   - Right-click trace → "Show as: Magnitude (dB)"
+
+6. You'll see the Bode plot!
+
+========================================
+WHAT THE SIMULATION SHOWS:
+========================================
+
+Frequency Response (AC Analysis):
+- DC Gain: ~1.4 dB
+- 3dB Bandwidth: ~1.16 MHz
+- Unity-Gain Frequency: ~0.71 MHz
+- Phase Margin: Good (stable)
+
+========================================
+MODIFYING THE CIRCUIT:
+========================================
+
+To change component values:
+- Double-click any component
+- Edit the "Value" field
+- Re-run simulation
+
+To change bias:
+- Edit Vbias_p (currently 3.5V)
+- Edit Vbias_n (currently 1.5V)
+
+To change transistor sizes:
+- Scroll to bottom of schematic
+- Edit the text with SPICE models
+- Change w= and l= parameters
+
+========================================
+TROUBLESHOOTING:
+========================================
+
+If KiCad says "Can't open":
+→ Make sure both files are in same folder:
+  - two_stage_opamp.kicad_pro
+  - two_stage_opamp.kicad_sch
+
+If simulation doesn't run:
+→ Check SPICE log tab for errors
+
+If no signals appear:
+→ Make sure simulation completed
+→ Look for "Simulation completed" message
+
+========================================
+
+Everything is ready!
+Just open: two_stage_opamp.kicad_pro
+
+========================================

@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "tabs": [
+    {
+      "analysis": {
+        "kind": "ac",
+        "lin": {
+          "start": "0.1",
+          "stop": "1G",
+          "points": 1000
+        },
+        "log": {
+          "start": "0.1",
+          "stop": "1G",
+          "points": 100
+        },
+        "list": {
+          "frequencies": ""
+        },
+        "scale": "dec"
+      },
+      "traces": [
+        {
+          "signal": "V(vout)",
+          "cursor1": {
+            "position": 0,
+            "x_format": "",
+            "y_format": ""
+          },
+          "cursor2": {
+            "position": 0,
+            "x_format": "",
+            "y_format": ""
+          },
+          "cursorD": {
+            "x_format": "",
+            "y_format": ""
+          },
+          "color": {
+            "r": 255,
+            "g": 255,
+            "b": 0,
+            "a": 255
+          },
+          "colorSet": true,
+          "transform": "dB"
+        },
+        {
+          "signal": "V(vout)",
+          "cursor1": {
+            "position": 0,
+            "x_format": "",
+            "y_format": ""
+          },
+          "cursor2": {
+            "position": 0,
+            "x_format": "",
+            "y_format": ""
+          },
+          "cursorD": {
+            "x_format": "",
+            "y_format": ""
+          },
+          "color": {
+            "r": 255,
+            "g": 64,
+            "b": 64,
+            "a": 255
+          },
+          "colorSet": true,
+          "transform": "phase"
+        }
+      ],
+      "measurements": [],
+      "showGrid": true,
+      "showLegend": true,
+      "showDottedCursor": true,
+      "Y1": {
+        "log": false,
+        "max": "",
+        "min": "",
+        "units": "~V"
+      },
+      "Y2": {
+        "log": false,
+        "max": "",
+        "min": "",
+        "units": "~V"
+      },
+      "Y3": {
+        "log": false,
+        "max": "",
+        "min": "",
+        "units": "~V"
+      },
+      "margin": {
+        "top": 45,
+        "bottom": 45,
+        "left": 70,
+        "right": 70
+      }
+    },
+    {
+      "analysis": {
+        "kind": "op"
+      },
+      "traces": [],
+      "measurements": [],
+      "showGrid": true,
+      "showLegend": true,
+      "showDottedCursor": true,
+      "Y1": {
+        "log": false,
+        "max": "",
+        "min": "",
+        "units": "~V"
+      },
+      "Y2": {
+        "log": false,
+        "max": "",
+        "min": "",
+        "units": "~V"
+      },
+      "Y3": {
+        "log": false,
+        "max": "",
+        "min": "",
+        "units": "~V"
+      },
+      "margin": {
+        "top": 45,
+        "bottom": 45,
+        "left": 70,
+        "right": 70
+      }
+    },
+    {
+      "analysis": {
+        "kind": "tran",
+        "step": "1n",
+        "stop": "10u",
+        "start": "0",
+        "useInitialConditions": false,
+        "max_step": ""
+      },
+      "traces": [
+        {
+          "signal": "V(vout)",
+          "cursor1": {
+            "position": 0,
+            "x_format": "",
+            "y_format": ""
+          },
+          "cursor2": {
+            "position": 0,
+            "x_format": "",
+            "y_format": ""
+          },
+          "cursorD": {
+            "x_format": "",
+            "y_format": ""
+          },
+          "color": {
+            "r": 255,
+            "g": 255,
+            "b": 0,
+            "a": 255
+          },
+          "colorSet": true,
+          "transform": ""
+        },
+        {
+          "signal": "V(vin_p)",
+          "cursor1": {
+            "position": 0,
+            "x_format": "",
+            "y_format": ""
+          },
+          "cursor2": {
+            "position": 0,
+            "x_format": "",
+            "y_format": ""
+          },
+          "cursorD": {
+            "x_format": "",
+            "y_format": ""
+          },
+          "color": {
+            "r": 64,
+            "g": 255,
+            "b": 64,
+            "a": 255
+          },
+          "colorSet": true,
+          "transform": ""
+        }
+      ],
+      "measurements": [],
+      "showGrid": true,
+      "showLegend": true,
+      "showDottedCursor": true,
+      "Y1": {
+        "log": false,
+        "max": "",
+        "min": "",
+        "units": "~V"
+      },
+      "Y2": {
+        "log": false,
+        "max": "",
+        "min": "",
+        "units": "~V"
+      },
+      "Y3": {
+        "log": false,
+        "max": "",
+        "min": "",
+        "units": "~V"
+      },
+      "margin": {
+        "top": 45,
+        "bottom": 45,
+        "left": 70,
+        "right": 70
+      }
+    }
+  ],
+  "user_defined_signals": [],
+  "measurements": []
+}

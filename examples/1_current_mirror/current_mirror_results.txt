@@ -1,0 +1,226 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: Current Mirror Bias Circuit
+
+======================================================
+  Current Mirror Bias Circuit - Operating Point
+======================================================
+
+Circuit Parameters:
+  VDD = 0.9 V
+  I1 = I2 = 45 uA
+  R1 = 5.56 kOhm
+  NMOS: Kp=180u, Vto=0.4V, W=8u, L=1u
+======================================================
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 1
+
+======================================================
+  DC Operating Point Results (VDD = 0.9V):
+======================================================
+
+v(vd1) = 6.483946e-01
+v(vs2) = 6.131898e-04
+v(vd3) = 6.488598e-01
+
+Currents:
+Error: no such parameter i.
+Error: no such parameter i.
+Warning from checkvalid: vector @i1[i] is not available or has zero length.
+
+======================================================
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 71
+Running VDD sweep from 0.5V to 1.2V...
+
+
+Warning: command 'plot' is not available during batch simulation, ignored!
+    You may use Gnuplot instead.
+
+
+Warning: command 'plot' is not available during batch simulation, ignored!
+    You may use Gnuplot instead.
+
+
+======================================================
+  Simulation Complete!
+======================================================
+
+Available signals:
+  v(vd1)  - M1 drain/gate voltage
+  v(vs2)  - M2 gate/source voltage
+  v(vd3)  - M3 drain/gate voltage
+  v(vdd)  - Supply voltage
+
+To plot interactively:
+  plot v(vd1) v(vs2) v(vd3)
+  plot (v(vdd)-v(vd3))/5.56k
+======================================================
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Error: no data saved for D.C. Transfer curve analysis; analysis not run
+
+No. of Data Rows : 1
+doAnalyses: not found
+
+run simulation(s) aborted
+	Node                                  Voltage
+	----                                  -------
+	----	-------
+	vd3                              4.764067e-01
+	vs2                              -3.63793e-04
+	vd1                              6.483946e-01
+	vdd                              5.000000e-01
+
+	Source	Current
+	------	-------
+
+	vdd#branch                       -9.42434e-05
+
+ Mos1 models (Level 1 MOSfet model with Meyer capacitance model)
+      model               nmos_sh
+
+       type                  nmos
+        vto                   0.4
+         kp               0.00018
+      gamma                     0
+        phi                   0.6
+     lambda                  0.02
+         rd                     0
+         rs                     0
+        cbd                     0
+        cbs                     0
+         is                 1e-14
+         pb                   0.8
+       cgso                     0
+       cgdo                     0
+       cgbo                     0
+        rsh                     0
+         cj                     0
+         mj                   0.5
+       cjsw                     0
+       mjsw                   0.5
+         js                     0
+        tox                     0
+         ld                     0
+         u0                     0
+         fc                   0.5
+       nsub                     0
+        tpg                     0
+        nss                     0
+       tnom                    27
+         kf <<NAN, error = 7>>
+         af <<NAN, error = 7>>
+
+ Resistor models (Simple linear resistor)
+      model                     R
+
+        rsh                     0
+     narrow                     0
+      short                     0
+        tc1                     0
+        tc2                     0
+        tce                     0
+       defw                 1e-05
+          l                 1e-05
+         kf                     0
+         af                     0
+          r                     0
+     bv_max                 1e+99
+         lf                     1
+         wf                     1
+         ef                     1
+
+ Isource: Independent current source
+     device                    i2                    i1
+         dc               4.5e-05               4.5e-05
+          m                     1                     1
+      acmag                     0                     0
+      pulse         -         -
+        sin         -         -
+        exp         -         -
+        pwl         -         -
+       sffm         -         -
+         am         -         -
+    trnoise         -         -
+   trrandom         -         -
+          v           0.000363793              0.148395
+          p          -1.63707e-08          -6.67776e-06
+    current               4.5e-05               4.5e-05
+
+ Mos1: Level 1 MOSfet model with Meyer capacitance model
+     device                    m3                    m2                    m1
+      model               nmos_sh               nmos_sh               nmos_sh
+         id            4.2434e-06               4.5e-05               4.5e-05
+         is           -4.2434e-06              -4.5e-05              -4.5e-05
+         ig                     0                     0                     0
+         ib          -4.86407e-13          -5.09495e-13          -6.58395e-13
+        vgs              0.476407              0.648758              0.648395
+        vds              0.476407              0.500364              0.648395
+        vbs                     0           0.000363793                     0
+        von                   0.4                   0.4                   0.4
+      vdsat             0.0764067              0.248758              0.248395
+         rs                     0                     0                     0
+         rd                     0                     0                     0
+         gm           0.000111074           0.000361797           0.000362327
+        gds            8.4067e-08           8.91083e-07           8.88478e-07
+        gmb                     0                     0                     0
+        cbd                     0                     0                     0
+        cbs                     0                     0                     0
+        cgs                     0                     0                     0
+        cgd                     0                     0                     0
+        cgb                     0                     0                     0
+       cbd0                     0                     0                     0
+     cbdsw0                     0                     0                     0
+       cbs0                     0                     0                     0
+     cbssw0                     0                     0                     0
+
+ Resistor: Simple linear resistor
+     device                    r1
+      model                     R
+ resistance                  5560
+         ac                  5560
+      dtemp                     0
+     bv_max                 1e+99
+      noisy                     1
+          i            4.2434e-06
+          p           1.00116e-07
+
+ Vsource: Independent voltage source
+     device                   vdd
+         dc                   0.5
+      acmag                     0
+      pulse         -
+        sin         -
+        exp         -
+        pwl         -
+       sffm         -
+         am         -
+    trnoise         -
+   trrandom         -
+    portnum                     0
+         z0                     0
+        pwr                     0
+       freq                     0
+      phase                     0
+          i          -9.42434e-05
+          p          -4.71217e-05
+
+
+Total analysis time (seconds) = 0.004
+
+Total elapsed time (seconds) = 0.037 
+
+Total DRAM available = 16221.180 MB.
+DRAM currently available = 3268.719 MB.
+Maximum ngspice program size =   17.492 MB.
+Current ngspice program size =   17.492 MB.
+

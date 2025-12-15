@@ -1,0 +1,134 @@
+* Two-Stage CMOS Operational Amplifier
+* KiCad 9.0 Compatible Netlist
+* Created using SPICEPilot
+
+.title Two-Stage CMOS Op-Amp
+
+* ============================================
+* SUPPLY VOLTAGES
+* ============================================
+Vdd vdd 0 DC 5
+Vbias_p vbias_p 0 DC 3.5
+Vbias_n vbias_n 0 DC 1.5
+
+* ============================================
+* INPUT SIGNALS
+* ============================================
+* For AC analysis: DC bias + AC component
+Vin_p vin_p 0 DC 2.5 AC 0.5
+Vin_n vin_n 0 DC 2.5 AC 0
+
+* ============================================
+* FIRST STAGE: DIFFERENTIAL AMPLIFIER
+* ============================================
+
+* M8: Tail current source (NMOS)
+M8 n_tail vbias_n 0 0 NMOS_BIG
+
+* M2, M3: Differential input pair (NMOS)
+M2 n_d2 vin_p n_tail 0 NMOS
+M3 n_d3 vin_n n_tail 0 NMOS
+
+* M4, M5: Active load current mirror (PMOS)
+M4 n_d2 n_d2 vdd vdd PMOS
+M5 n_d3 n_d2 vdd vdd PMOS
+
+* ============================================
+* SECOND STAGE: COMMON-SOURCE AMPLIFIER
+* ============================================
+
+* M6: Current source load (PMOS)
+M6 vout vbias_p vdd vdd PMOS
+
+* M7: Output driver (NMOS)
+M7 vout n_d3 0 0 NMOS
+
+* M1: Additional bias transistor
+M1 n_m1 vbias_p vdd vdd PMOS
+Rdummy n_m1 0 10k
+
+* ============================================
+* COMPENSATION AND LOAD CAPACITORS
+* ============================================
+
+* CA: Miller compensation capacitor
+CA n_d3 vout 3p
+
+* CB: Additional compensation
+CB vout 0 0.5p
+
+* CL: Load capacitor
+CL vout 0 15p
+
+* ============================================
+* TRANSISTOR MODELS
+* ============================================
+
+* NMOS model - standard input transistors
+.model NMOS nmos (
++ level=1
++ kp=120u
++ vto=0.7
++ lambda=0.02
++ gamma=0.4
++ phi=0.65
++ w=30u
++ l=2u
++ )
+
+* NMOS model - larger for tail current source
+.model NMOS_BIG nmos (
++ level=1
++ kp=120u
++ vto=0.7
++ lambda=0.02
++ gamma=0.4
++ phi=0.65
++ w=60u
++ l=2u
++ )
+
+* PMOS model - active loads and current sources
+.model PMOS pmos (
++ level=1
++ kp=40u
++ vto=-0.7
++ lambda=0.02
++ gamma=0.4
++ phi=0.65
++ w=60u
++ l=2u
++ )
+
+* ============================================
+* SIMULATION COMMANDS
+* ============================================
+
+* Operating Point Analysis
+.op
+
+* AC Analysis (Bode Plot)
+.ac dec 100 0.1 1G
+
+* Transient Analysis (Step Response)
+*.tran 1n 10u
+
+* Print/Plot commands for KiCad
+.control
+* Run operating point
+op
+print all
+
+* Run AC analysis
+ac dec 100 0.1 1G
+
+* Display results
+print vout
+
+* Plot Bode magnitude
+plot vdb(vout)
+plot vp(vout)
+
+.endc
+
+.end

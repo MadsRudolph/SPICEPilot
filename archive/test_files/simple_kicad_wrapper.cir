@@ -1,0 +1,9 @@
+* Simple KiCad Wrapper for Op-Amp Simulation
+* This file can be used directly with KiCad simulator
+
+* Include the main op-amp circuit
+.include "C:/Users/Mads2/SPICEPilot/two_stage_opamp_kicad.cir"
+
+* No need for additional components - everything is in the included file
+
+.end

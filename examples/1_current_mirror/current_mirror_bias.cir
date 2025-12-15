@@ -1,0 +1,93 @@
+* Current Mirror Bias Circuit - Problem 1
+* Based on Figure 1: LT Spice schematic
+.title Current Mirror Bias Circuit
+
+* Power supply
+Vdd vdd 0 DC 0.9
+
+* Current sources
+I1 vdd vd1 DC 45u
+I2 vs2 0 DC 45u
+
+* Resistor
+R1 vdd vd3 5.56k
+
+* MOSFETs - all NMOS_SH (W=8u, L=1u)
+* M1: Diode-connected (drain and gate tied together)
+M1 vd1 vd1 0 0 NMOS_SH
+
+* M2: Gate tied to VD1 (current mirror), source to VS2
+M2 vdd vd1 vs2 0 NMOS_SH
+
+* M3: Diode-connected (drain and gate tied together)
+M3 vd3 vd3 0 0 NMOS_SH
+
+* NMOS model
+.model NMOS_SH nmos (level=1 kp=180u vto=0.4 lambda=0.02 w=8u l=1u)
+
+* Analysis
+.op
+.dc Vdd 0.5 1.2 0.01
+
+* Control block for automatic execution
+.control
+echo "======================================================"
+echo "  Current Mirror Bias Circuit - Operating Point"
+echo "======================================================"
+echo ""
+echo "Circuit Parameters:"
+echo "  VDD = 0.9 V"
+echo "  I1 = I2 = 45 uA"
+echo "  R1 = 5.56 kOhm"
+echo "  NMOS: Kp=180u, Vto=0.4V, W=8u, L=1u"
+echo "======================================================"
+echo ""
+
+* Operating point at VDD=0.9V
+op
+echo ""
+echo "======================================================"
+echo "  DC Operating Point Results (VDD = 0.9V):"
+echo "======================================================"
+echo ""
+print v(vd1) v(vs2) v(vd3)
+echo ""
+echo "Currents:"
+print @i1[i] @i2[i]
+echo ""
+echo "======================================================"
+echo ""
+
+* DC sweep
+dc Vdd 0.5 1.2 0.01
+echo "Running VDD sweep from 0.5V to 1.2V..."
+echo ""
+
+* Plot results
+set hcopydevtype=postscript
+set color0=white
+set color1=black
+
+* Create plots
+plot v(vd1) v(vs2) v(vd3) v(vdd) title 'Node Voltages vs VDD' xlabel 'VDD (V)' ylabel 'Voltage (V)'
+plot (v(vdd)-v(vd3))/5.56k*1e6 title 'Current through R1 vs VDD' xlabel 'VDD (V)' ylabel 'Current (uA)'
+
+echo ""
+echo "======================================================"
+echo "  Simulation Complete!"
+echo "======================================================"
+echo ""
+echo "Available signals:"
+echo "  v(vd1)  - M1 drain/gate voltage"
+echo "  v(vs2)  - M2 gate/source voltage"
+echo "  v(vd3)  - M3 drain/gate voltage"
+echo "  v(vdd)  - Supply voltage"
+echo ""
+echo "To plot interactively:"
+echo "  plot v(vd1) v(vs2) v(vd3)"
+echo "  plot (v(vdd)-v(vd3))/5.56k"
+echo "======================================================"
+
+.endc
+
+.end
