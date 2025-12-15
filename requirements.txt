@@ -1,0 +1,5 @@
+matplotlib==3.10.8
+numpy==2.3.5
+PySpice==1.5
+scipy==1.16.3
+pandas
